@@ -9,6 +9,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    //memanggil data dari api
     const fetchData = async () => {
       setError(false);
       setLoading(true);
@@ -38,6 +39,7 @@ export default function Home() {
     <div className="container">
       <h2>THRIFTING KUYY</h2>
       <div className="card-list">
+        {/* data yang diambil akan di filter hanya menampilkan 8 data lalu dikirim ke komponen productcard */}
         {data
           .filter((_, i) => i < 8)
           .map((product) => (

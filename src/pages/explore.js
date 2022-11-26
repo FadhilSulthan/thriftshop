@@ -8,6 +8,7 @@ export default function Explore() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // mengambil data dari api
     const fetchData = async () => {
       setError(false);
       setLoading(true);
@@ -37,6 +38,7 @@ export default function Explore() {
     <div className="container">
       <h2> All Products</h2>
       <div className="card-list">
+        {/* data yang diambil akan di map lalu dikirim ke komponen productcard */}
         {data.map((product) => (
           <ProductCard data={product} key={product.id} />
         ))}

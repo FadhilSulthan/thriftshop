@@ -9,6 +9,7 @@ export default function Apparel() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // mengambil data dari api
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -32,6 +33,7 @@ export default function Apparel() {
     <div className="apparel-section">
       <div className="category-list">
         <h3>Brand Categories</h3>
+        {/** menampilkan data category ketika datanya sudah tersedia */}
         {category &&
           category.map((option) => (
             <option
@@ -44,6 +46,7 @@ export default function Apparel() {
             </option>
           ))}
       </div>
+      {/* mengirim data category yang dipilih ke komponen apparelcard */}
       {selectedCategory && <ApparelCard data={selectedCategory} />}
     </div>
   );

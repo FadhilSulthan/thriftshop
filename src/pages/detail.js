@@ -6,9 +6,11 @@ import "./detail.css";
 export default function ProductDetail() {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
+  // ambil variable slug yang ada di route dengan useParams
   const { slug } = useParams();
 
   useEffect(() => {
+    // mengambil data dari api sesuai dengan slug
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -29,6 +31,7 @@ export default function ProductDetail() {
   return (
     <>
       <h2 className="product-title">Product Details</h2>
+      {/* halaman baru akan muncul ketika data sudah tersedia */}
       {data && (
         <div className="detail">
           <img

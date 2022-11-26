@@ -9,6 +9,7 @@ export default function ApparelCard(res) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // mengambil data dari api berdasarkan data yang dikirim dari category
     const fetchData = async () => {
       setError(false);
       setLoading(true);
@@ -36,6 +37,7 @@ export default function ApparelCard(res) {
 
   return (
     <div className="card-list-category">
+      {/*jika data yang didapat lebih dari 0 maka akan ditampilkan, jika tidak maka tulisan not found */}
       {data.length > 0 ? (
         data.map((data, index) => (
           <Link to={`/item/${data.slug}`} key={index}>

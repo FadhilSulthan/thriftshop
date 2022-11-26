@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <Header />
       <main className="main">
+        {/* deklarasi route yang digunakan*/}
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<Home />} />
