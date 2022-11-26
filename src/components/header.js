@@ -7,6 +7,7 @@ export default function Header() {
     <div className="header">
       <div className="containernav">
         <img className="logo" src="logo.png" alt="logo" />
+        {/* navlink untuk berpindah route/halaman */}
         <NavLink to="/home" className="navbar">
           Home
         </NavLink>
