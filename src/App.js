@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import ProductDetail from "./pages/detail";
 import About from "./pages/about";
 import Apparel from "./pages/apparel";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
