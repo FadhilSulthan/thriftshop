@@ -16,12 +16,12 @@ export default function Home() {
 
       try {
         const results = await axios(
-          "https://wefootwear-api.herokuapp.com/items"
+          "https://wefootwear-api.vercel.app/api/items"
         );
         setData(results.data);
+        console.log(results);
       } catch (err) {
         setError(true);
-        setTimeout(() => setError(false), 4000);
       }
       setLoading(false);
     };

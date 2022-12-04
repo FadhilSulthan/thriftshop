@@ -5,7 +5,7 @@ import "./apparel.css";
 
 export default function Apparel() {
   const [category, setCategory] = useState();
-  const [selectedCategory, setSelectedCategory] = useState("nike-product");
+  const [selectedCategory, setSelectedCategory] = useState("nike product");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Apparel() {
       setLoading(true);
       try {
         const results = await axios(
-          `https://wefootwear-api.herokuapp.com/categories`
+          `https://wefootwear-api.vercel.app/api/categories`
         );
         setCategory(results.data);
       } catch (err) {
@@ -39,7 +39,7 @@ export default function Apparel() {
             <option
               className="category-title"
               key={option.id}
-              value={option.slug}
+              value={option.name}
               onClick={(e) => setSelectedCategory(e.target.value)}
             >
               {option.name}

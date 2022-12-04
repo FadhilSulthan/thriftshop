@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./product-card.css";
 
-export default function ApparelCard(res) {
+export default function ApparelCard(props) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,9 +16,10 @@ export default function ApparelCard(res) {
 
       try {
         const results = await axios(
-          `https://wefootwear-api.herokuapp.com/items?category.slug=${res.data}&_sort=published_at:DESC`
+          `https://wefootwear-api.vercel.app/api/items/category/` + props.data
         );
         setData(results.data);
+        console.log(results);
       } catch (err) {
         setError(true);
         setTimeout(() => setError(false), 4000);
@@ -26,7 +27,7 @@ export default function ApparelCard(res) {
       setLoading(false);
     };
     fetchData();
-  }, [res]);
+  }, [props]);
 
   if (loading) {
     return <h3>Loading...</h3>;
@@ -44,7 +45,7 @@ export default function ApparelCard(res) {
             <div className="card">
               <img
                 className="card-image"
-                src={data.prop[0].image[0]}
+                src={data.images[0]}
                 alt={data.name}
               />
               <div className="card-content">

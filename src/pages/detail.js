@@ -15,9 +15,9 @@ export default function ProductDetail() {
       setLoading(true);
       try {
         const results = await axios(
-          "https://wefootwear-api.herokuapp.com/items?slug=" + slug
+          "https://wefootwear-api.vercel.app/api/items/" + slug
         );
-        setData(results.data[0]);
+        setData(results.data);
       } catch (err) {}
       setLoading(false);
     };
@@ -34,14 +34,10 @@ export default function ProductDetail() {
       {/* halaman baru akan muncul ketika data sudah tersedia */}
       {data && (
         <div className="detail">
-          <img
-            className="detail-image"
-            src={data.prop[0].image[0]}
-            alt={data.name}
-          />
+          <img className="detail-image" src={data.images[0]} alt={data.name} />
           <div className="detail-content">
             <p className="detail-blur">
-              {data.type.name} {">"} {data.category.name}
+              {data.type} {">"} {data.category}
             </p>
             <h3 className="detail-name">{data.name}</h3>
             <p className="detail-blur">{data.color}</p>

@@ -15,7 +15,7 @@ export default function Explore() {
 
       try {
         const results = await axios(
-          "https://wefootwear-api.herokuapp.com/items"
+          "https://wefootwear-api.vercel.app/api/items"
         );
         setData(results.data);
       } catch (err) {
